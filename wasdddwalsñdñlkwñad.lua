@@ -248,7 +248,7 @@ local ESP = loadstring(game:HttpGet("https://raw.githubusercontent.com/wpalklddd
 loadstring(game:HttpGet("https://raw.githubusercontent.com/wpalklddd12345678910/kkkkjwakjxxxwasfld/main/wasdjlksjalkd", true))()
 
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/thtduddawithmiclo12ud2222/Ui/main/NoCursor"))()
-local window = library:CreateWindow("Untitled", Vector2.new(492, 635), Enum.KeyCode.V)
+local window = library:CreateWindow("Untitled", Vector2.new(492, 626), Enum.KeyCode.V)
 
 local tab1 = window:CreateTab("Aim Stuff")
 local tab2 = window:CreateTab("Rage Cheats")
