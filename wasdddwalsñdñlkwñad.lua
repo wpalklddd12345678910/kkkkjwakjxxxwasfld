@@ -243,9 +243,9 @@ if getgenv().AutoPrediction == true then
             end
 end
 
-local ESP = 
+local ESP = loadstring(game:HttpGet("https://raw.githubusercontent.com/wpalklddd12345678910/kkkkjwakjxxxwasfld/main/zzzzzzesp", true))()
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/thtduddawithmiclo12ud2222/FORVMODUULES/main/Sxri", true))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/wpalklddd12345678910/kkkkjwakjxxxwasfld/main/wasdjlksjalkd", true))()
 
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/thtduddawithmiclo12ud2222/Ui/main/NoCursor"))()
 local window = library:CreateWindow("Untitled", Vector2.new(492, 598), Enum.KeyCode.V)
@@ -317,6 +317,10 @@ section3:AddToggle("Grabbed Check", false, function(alr13)
     Aiming.Check().Grabbed = alr13
 end)
 
+section3:AddDropdown("Hitbox", {"Head", "UpperTorso", "HumanoidRootPart", "LowerTorso", "LeftUpperLeg", "RightUpperLeg", "LeftLowerLeg", "RightLowerLeg", "LeftFoot", "RightFoot"}, default, false, function(silenthitbox)
+    Aiming.TargetPart = silenthitbox
+end)
+
 section4:AddLabel("FOV")
 
 section4:AddToggle("Enabled", false, function(alr14)
@@ -332,7 +336,7 @@ section4:AddDropdown("Shape", {"Custom", "Square", "Circle"}, "Custom", false, f
         Aiming.FOV = 30
         Aiming.FOVSides = 0
         Aiming.Transparency = 5
-    elseif alr16 == "Square" then
+    elseif alr16 == "Octagonal" then
         Aiming.FOV = 30
         Aiming.FOVSides = 13
         Aiming.Transparency = 5
@@ -351,7 +355,7 @@ section4:AddSlider("Sides", 1, 40, 40, 40, function(alr18)
     Aiming.FOVSides = alr18
 end)
 
-section4:AddSlider("Transparency", 1, 1, 10, 10, function(alr19)
+section4:AddSlider("Transparency", 0.1, 0.1, 1, 5, function(alr19)
     Aiming.Transparency = alr19
 end)
 
