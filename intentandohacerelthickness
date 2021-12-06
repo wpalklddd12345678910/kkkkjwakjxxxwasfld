@@ -43,7 +43,7 @@ getgenv().Aiming = {
     FOV = 25,
     Filled = false,
     Transparency = .1,
-    Thickness
+    Thickness = 1,
     
     HitChance = 100,
     Selected = LocalPlayer,
