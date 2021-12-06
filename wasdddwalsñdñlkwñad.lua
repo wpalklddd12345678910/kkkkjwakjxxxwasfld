@@ -317,10 +317,6 @@ section3:AddToggle("Grabbed Check", false, function(alr13)
     Aiming.Check().Grabbed = alr13
 end)
 
-section3:AddSlider("Hit Chance", 1, 1, 100, 100, function(hitchance)
-    Aiming.HitChance = hitchance
-end)
-
 section4:AddLabel("FOV")
 
 section4:AddToggle("Enabled", false, function(alr14)
