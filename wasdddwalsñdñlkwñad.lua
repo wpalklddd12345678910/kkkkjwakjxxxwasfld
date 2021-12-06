@@ -265,6 +265,10 @@ local section6 = tab1:CreateSector("Silent Aimbot; Settings", "right")
 local section6 = tab1:CreateSector("Anti Aim", "left")
 local section7 = tab1:CreateSector("Whitelist; Settings", "right")
 
+section1:AddTextbox("Aimlock Key", "q", function(bindasd)
+    getgenv().AimlockKey = bindasd
+  end)
+
 section1:AddToggle("Enabled", false, function(alr1)
     Aimlock = alr1
 end)
@@ -281,40 +285,44 @@ section1:AddToggle("Team Check", false, function(alr4)
     getgenv().TeamCheck = alr4
 end)
 
-section1:AddToggle("Get Nearest Target", false, function(alr5)
-    getgenv().GetNearestTarget = alr5
+section1:AddDropdown("Hitbox", {"Head", "UpperTorso", "HumanoidRootPart", "LowerTorso", "LeftUpperLeg", "RightUpperLeg", "LeftLowerLeg", "RightLowerLeg", "LeftFoot", "RightFoot"}, default, false, function(alr5)
+    getgenv().AimPart = alr5
 end)
 
-section1:AddDropdown("Hitbox", {"Head", "UpperTorso", "HumanoidRootPart", "LowerTorso", "LeftUpperLeg", "RightUpperLeg", "LeftLowerLeg", "RightLowerLeg", "LeftFoot", "RightFoot"}, default, false, function(alr6)
-    getgenv().AimPart = alr6
+section2:AddSlider("Aim Radius", 1, 30, 100, decimals, function(alr6)
+    getgenv().AimRadius = alr16
 end)
 
-section2:AddKeybind("Aimlock Key", "None", newkeycallback, function(alr7)
-    getgenv().AimlockKey = alr7
+section2:AddToggle("Aim Fov", false, function(alr7)
+    Aiming.ShowFOV = alr17
 end)
 
-section2:AddSlider("Aim Radius", 1, 30, 100, decimals, function(alr8)
-    getgenv().AimRadius = alr8
+section2:AddToggle("Filled", false, function(alr8)
+    Aiming.Filled = alr8
 end)
 
-section3:AddToggle("Enabled", false, function(alr9)
-    DaHoodSettings.SilentAim = alr9
+section2:AddSlider("Transparency", 0, 0, 1, 10, function(alr9)
+    Aiming.Transparency = alr9
 end)
 
-section3:AddToggle("Ping Based Prediction", false, function(alr10)
-    DaHoodSettings.AutoPrediction = alr10
+section3:AddToggle("Enabled", false, function(alr10)
+    DaHoodSettings.SilentAim = alr10
 end)
 
-section3:AddToggle("Visible Check", false, function(alr11)
-    Aiming.VisibleCheck = alr11
+section3:AddToggle("Ping Based Prediction", false, function(alr11)
+    DaHoodSettings.AutoPrediction = alr11
 end)
 
-section3:AddToggle("K0d Check", false, function(alr12)
-    Aiming.Check().K0d = alr12
+section3:AddToggle("Visible Check", false, function(alr12)
+    Aiming.VisibleCheck = alr12
 end)
 
-section3:AddToggle("Grabbed Check", false, function(alr13)
-    Aiming.Check().Grabbed = alr13
+section3:AddToggle("K0d Check", false, function(alr13)
+    Aiming.Check().K0d = alr13
+end)
+
+section3:AddToggle("Grabbed Check", false, function(alr14)
+    Aiming.Check().Grabbed = alr14
 end)
 
 section3:AddDropdown("Hitbox", {"Head", "UpperTorso", "HumanoidRootPart", "LowerTorso", "LeftUpperLeg", "RightUpperLeg", "LeftLowerLeg", "RightLowerLeg", "LeftFoot", "RightFoot"}, default, false, function(silenthitbox)
@@ -323,40 +331,40 @@ end)
 
 section4:AddLabel("FOV")
 
-section4:AddToggle("Enabled", false, function(alr14)
-    Aiming.ShowFOV = alr14
+section4:AddToggle("Enabled", false, function(alr15)
+    Aiming.ShowFOV = alr15
 end)
 
-section4:AddToggle("Filled", false, function(alr15)
-    Aiming.Filled = alr15
+section4:AddToggle("Filled", false, function(alr16)
+    Aiming.Filled = alr16
 end)
 
-section4:AddDropdown("Shape", {"Custom", "Square", "Circle"}, "Custom", false, function(alr16)
-    if alr16 == "Custom" then
-        Aiming.FOV = 30
-        Aiming.FOVSides = 0
+section4:AddDropdown("Adjust Fov, Round To;", {"Legit Adjust", "Rage Adjust", "Custom"}, "Custom", false, function(alr17)
+    if alr17 == "Legit Adjust" then
+        Aiming.FOV = 13
+        Aiming.FOVSides = 2.775
         Aiming.Transparency = 5
-    elseif alr16 == "Octagonal" then
-        Aiming.FOV = 30
-        Aiming.FOVSides = 13
-        Aiming.Transparency = 5
-    elseif alr16 == "Circle" then
+    elseif alr17 == "Rage Adjust" then
+        Aiming.FOV = 70
+        Aiming.FOVSides = 40
+        Aiming.Transparency = 0.3
+    elseif alr17 == "Custom" then
         Aiming.FOV = 30
         Aiming.FOVSides = 98
         Aiming.Transparency = 5
     end
 end)
 
-section4:AddSlider("Size", 1, 30, 100, 100, function(alr17)
-    Aiming.FOV = alr17
+section4:AddSlider("Size", 1, 30, 100, 100, function(alr18)
+    Aiming.FOV = alr18
 end)
 
-section4:AddSlider("Round", 1, 40, 40, 40, function(alr18)
-    Aiming.FOVSides = alr18
+section4:AddSlider("Round", 1, 40, 40, 40, function(alr19)
+    Aiming.FOVSides = alr19
 end)
 
-section4:AddSlider("Transparency", 0.1, 0.1, 1, 5, function(alr19)
-    Aiming.Transparency = alr19
+section4:AddSlider("Transparency", 0.1, 0.1, 1, 5, function(alr20)
+    Aiming.Transparency = alr20
 end)
 
 section5:AddButton("Silent Aimbot", function()
