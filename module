@@ -42,7 +42,7 @@ getgenv().Aiming = {
     VisibleCheck = true,
     FOV = 25,
     Filled = false,
-    Transparency = .1,
+    Transparency = 5,
     
     HitChance = 100,
     Selected = LocalPlayer,
