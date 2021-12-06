@@ -351,7 +351,7 @@ section4:AddSlider("Size", 1, 30, 100, 100, function(alr17)
     Aiming.FOV = alr17
 end)
 
-section4:AddSlider("Sides", 1, 40, 40, 40, function(alr18)
+section4:AddSlider("Round", 1, 40, 40, 40, function(alr18)
     Aiming.FOVSides = alr18
 end)
 
