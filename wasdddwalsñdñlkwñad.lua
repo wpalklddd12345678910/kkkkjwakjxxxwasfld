@@ -358,15 +358,15 @@ section4:AddDropdown("Adjust Fov, Round To;", {"Legit Adjust", "Rage Adjust", "C
     end
 end)
 
-section4:AddSlider("Size", 1, 30, 100, 100, function(alr18)
+section4:AddSlider("Size", 1, 30, 100, decimals, function(alr18)
     Aiming.FOV = alr18
 end)
 
-section4:AddSlider("Round", 1, 40, 40, 40, function(alr19)
+section4:AddSlider("Round", 1, 1, 40, decimals, function(alr19)
     Aiming.FOVSides = alr19
 end)
 
-section4:AddSlider("Transparency", 0, 0.2, 1, 10, function(alr20)
+section4:AddSlider("Transparency", 0, 1, 1, 10, function(alr20)
     Aiming.Transparency = alr20
 end)
 
