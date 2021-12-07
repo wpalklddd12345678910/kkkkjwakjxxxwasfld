@@ -9,14 +9,14 @@ if not getgenv().CursorConfig then
         CrosshairSize = 15,
         CrosshairGap = 2,
         CrosshairThickness = 1.5,
-        CrosshairEnabled = true,
+        CrosshairEnabled = false,
 
         Transparency = 1,
         OutlineTransparency = 1,
         CrosshairTransparency = 1,
 
-        Rainbow = true,
-        OutlineRainbow = true,
+        Rainbow = false,
+        OutlineRainbow = false,
 
         DeleteCursor = false
     }
