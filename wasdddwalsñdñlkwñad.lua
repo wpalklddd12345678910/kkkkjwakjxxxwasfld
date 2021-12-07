@@ -267,6 +267,9 @@ local section7 = tab1:CreateSector("Whitelist; Settings", "right")
 local section8 = tab4:CreateSector("Mainly Tps", "left")
 local section9 = tab4:CreateSector("Main Mountains", "left")
 local section10 = tab4:CreateSector("Main Buildings", "left")
+local section11 = tab4:CreateSector("Auto Buys.", "right")
+local section12 = tab4:CreateSector("Auto Buys 2.", "right")
+local section13 = tab4:CreateSector("Guns Ammo.", "right")
 
 section1:AddTextbox("Aimlock Key", "q", function(bindasd)
     getgenv().AimlockKey = bindasd
@@ -358,15 +361,15 @@ section4:AddDropdown("Adjust Fov, Round To;", {"Legit Adjust", "Rage Adjust", "C
     end
 end)
 
-section4:AddSlider("Size", 1, 30, 100, decimals, function(alr18)
+section4:AddSlider("Size", 1, 30, 100, 100, function(alr18)
     Aiming.FOV = alr18
 end)
 
-section4:AddSlider("Round", 1, 1, 40, decimals, function(alr19)
+section4:AddSlider("Round", 1, 40, 40, 40, function(alr19)
     Aiming.FOVSides = alr19
 end)
 
-section4:AddSlider("Transparency", 0, 1, 1, 10, function(alr20)
+section4:AddSlider("Transparency", 0, 0.2, 1, 10, function(alr20)
     Aiming.Transparency = alr20
 end)
 
@@ -612,3 +615,111 @@ section8:AddDropdown("Threes", {"Bank Three", "Ak Three", "Playground Three", "G
             pl.CFrame = location
     end
 end)
+
+section11:AddDropdown("Guns", {"Revolver", "Double Barrel", "AK", "AR", "SMG"}, default, false, function(v)
+    if v == "Revolver" then
+        local plr = game.Players.LocalPlayer
+        local savedarmourpos = plr.Character.HumanoidRootPart.Position
+                plr.Character.HumanoidRootPart.CFrame = CFrame.new(-639, 10, -118)
+                wait(.2)
+        
+                fireclickdetector(game.Workspace.Ignored.Shop['[Revolver] - $1300'].ClickDetector)
+                plr.Character.HumanoidRootPart.CFrame = CFrame.new(savedarmourpos)
+    elseif v == "Double Barrel" then
+        local plr = game.Players.LocalPlayer
+        local savedarmourpos = plr.Character.HumanoidRootPart.Position
+                plr.Character.HumanoidRootPart.CFrame = CFrame.new(-1040, 11, -257)
+                wait(.2)
+        
+                fireclickdetector(game.Workspace.Ignored.Shop['[Double-Barrel SG] - $1400'].ClickDetector)
+                plr.Character.HumanoidRootPart.CFrame = CFrame.new(savedarmourpos)
+    elseif v == "AK" then
+        local plr = game.Players.LocalPlayer
+        local savedarmourpos = plr.Character.HumanoidRootPart.Position
+                plr.Character.HumanoidRootPart.CFrame = CFrame.new(-584, -0, -753)
+                wait(.2)
+        
+                fireclickdetector(game.Workspace.Ignored.Shop['[AK47] - $2250'].ClickDetector)
+                plr.Character.HumanoidRootPart.CFrame = CFrame.new(savedarmourpos)
+    elseif v == "SMG" then
+        local plr = game.Players.LocalPlayer
+        local savedarmourpos = plr.Character.HumanoidRootPart.Position
+                plr.Character.HumanoidRootPart.CFrame = CFrame.new(-577, -0, -718)
+                wait(.2)
+        
+                fireclickdetector(game.Workspace.Ignored.Shop['[SMG] - $750'].ClickDetector)
+                plr.Character.HumanoidRootPart.CFrame = CFrame.new(savedarmourpos)
+    end
+end)
+
+section11:AddDropdown("Other Stuff", {"High Medium Armor", "Tool While Jailed", "Knife", "Mask"}, default, false, function(v)
+    if v == "High Medium Armor" then
+        local plr = game.Players.LocalPlayer
+        local savedarmourpos = plr.Character.HumanoidRootPart.Position
+            plr.Character.HumanoidRootPart.CFrame = CFrame.new(-927, -41, 567)
+            wait(.2)
+    
+            fireclickdetector(game.Workspace.Ignored.Shop['[High-Medium Armor] - $2300'].ClickDetector)
+            plr.Character.HumanoidRootPart.CFrame = CFrame.new(savedarmourpos)
+    elseif v == "Tool While Jailed" then
+        game:GetService("Players").LocalPlayer.Character.BodyEffects.Cuff:Destroy()
+    elseif v == "Knife" then
+        local plr = game.Players.LocalPlayer
+        local savedarmourpos = plr.Character.HumanoidRootPart.Position
+                plr.Character.HumanoidRootPart.CFrame = CFrame.new(-277, 21, -238)
+                wait(.2)
+        
+                fireclickdetector(game.Workspace.Ignored.Shop['[Knife] - $150'].ClickDetector)
+                plr.Character.HumanoidRootPart.CFrame = CFrame.new(savedarmourpos)
+    elseif v == "Mask" then
+        local d = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+        local k = game.Workspace.Ignored.Shop["[Surgeon Mask] - $25"]
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = k.Head.CFrame + Vector3.new(0, 3, 0)
+        if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - k.Head.Position).Magnitude <= 50 then
+            wait(.2)
+            fireclickdetector(k:FindFirstChild("ClickDetector"), 4)
+            toolf = game.Players.LocalPlayer.Backpack:WaitForChild("Mask")
+            toolf.Parent = game.Players.LocalPlayer.Character
+            wait()
+            game.Players.LocalPlayer.Character:WaitForChild("Mask")
+            game:GetService("VirtualUser"):ClickButton1(Vector2.new())
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(d)
+            end
+        end
+    end)
+
+    section12:AddDropdown("Guns 2", {"DrumGun", "Rpg", "Flame", "Grenade Launcher"}, default, false, function(v)
+        if v == "DrumGun" then
+            local plr = game.Players.LocalPlayer
+            local savedarmourpos = plr.Character.HumanoidRootPart.Position
+                    plr.Character.HumanoidRootPart.CFrame = CFrame.new(-83, 15, -84)
+                    wait(.2)
+            
+                    fireclickdetector(game.Workspace.Ignored.Shop['[DrumGun] - $3000'].ClickDetector)
+                    plr.Character.HumanoidRootPart.CFrame = CFrame.new(savedarmourpos)        
+        elseif v == "Rpg" then
+            local plr = game.Players.LocalPlayer
+            local savedarmourpos = plr.Character.HumanoidRootPart.Position
+                    plr.Character.HumanoidRootPart.CFrame = CFrame.new(-792, -46, -932)
+                    wait(.2)
+            
+                    fireclickdetector(game.Workspace.Ignored.Shop['[RPG] - $6000'].ClickDetector)
+                    plr.Character.HumanoidRootPart.CFrame = CFrame.new(savedarmourpos)
+        elseif v == "Flame" then
+            local plr = game.Players.LocalPlayer
+            local savedarmourpos = plr.Character.HumanoidRootPart.Position
+                    plr.Character.HumanoidRootPart.CFrame = CFrame.new(-166, 53, -98)
+                    wait(.2)
+            
+                    fireclickdetector(game.Workspace.Ignored.Shop['[Flamethrower] - $25000'].ClickDetector)
+                    plr.Character.HumanoidRootPart.CFrame = CFrame.new(savedarmourpos)
+        elseif v == "Grenade Launcher" then
+            local plr = game.Players.LocalPlayer
+            local savedarmourpos = plr.Character.HumanoidRootPart.Position
+                    plr.Character.HumanoidRootPart.CFrame = CFrame.new(-966, -11, 471)
+                    wait(.2)
+            
+                    fireclickdetector(game.Workspace.Ignored.Shop['[GrenadeLauncher] - $10000'].ClickDetector)
+                    plr.Character.HumanoidRootPart.CFrame = CFrame.new(savedarmourpos)
+        end
+    end)
