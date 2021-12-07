@@ -162,7 +162,7 @@ end)
 
 
 if getgenv().AutoPrediction == true then
-    wait(1.1)
+    wait(5.2)
         local pingvalue = game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString()
         local split = string.split(pingvalue,'(')
         local ping = tonumber(split[1])
@@ -170,43 +170,7 @@ if getgenv().AutoPrediction == true then
 
             if  ping < 250 then
                 getgenv().PredictionVelocity = 4.677
-            elseif ping < 249 then
-                getgenv().PredictionVelocity = 4.677
-            elseif ping < 248 then
-                getgenv().PredictionVelocity = 4.677
-            elseif ping < 247 then
-                getgenv().PredictionVelocity = 4.677
-            elseif ping < 246 then
-                getgenv().PredictionVelocity = 4.677
-            elseif ping < 245 then
-                getgenv().PredictionVelocity = 4.677
-            elseif ping < 244 then
-                getgenv().PredictionVelocity = 4.677
-            elseif ping < 243 then
-                getgenv().PredictionVelocity = 4.677
-            elseif ping < 242 then
-                getgenv().PredictionVelocity = 4.677
-            elseif ping < 241 then
-                getgenv().PredictionVelocity = 4.677
             elseif ping < 240 then
-                getgenv().PredictionVelocity = 4.788
-            elseif ping < 239 then
-                getgenv().PredictionVelocity = 4.788
-            elseif ping < 238 then
-                getgenv().PredictionVelocity = 4.788
-            elseif ping < 237 then
-                getgenv().PredictionVelocity = 4.788
-            elseif ping < 236 then
-                getgenv().PredictionVelocity = 4.788
-            elseif ping < 235 then
-                getgenv().PredictionVelocity = 4.788
-            elseif ping < 234 then
-                getgenv().PredictionVelocity = 4.788
-            elseif ping < 233 then
-                getgenv().PredictionVelocity = 4.788
-            elseif ping < 232 then
-                getgenv().PredictionVelocity = 4.788
-            elseif ping < 231 then
                 getgenv().PredictionVelocity = 4.788
             elseif ping < 230 then
                 getgenv().PredictionVelocity = 4.788
@@ -217,9 +181,9 @@ if getgenv().AutoPrediction == true then
             elseif ping < 200 then
                 getgenv().PredictionVelocity = 5.188
             elseif ping < 150 then
-                getgenv().PredictionVelocity = 5.37
+                getgenv().PredictionVelocity = 5.56
             elseif ping < 140 then
-                getgenv().PredictionVelocity = 5.4
+                getgenv().PredictionVelocity = 5.75
             elseif ping < 130 then
                 getgenv().PredictionVelocity = 6.28
             elseif ping < 120 then
@@ -242,6 +206,115 @@ if getgenv().AutoPrediction == true then
                 getgenv().PredictionVelocity = 8.543
             end
 end
+
+IsFirstPerson = false
+	WHeld = false
+	SHeld = false
+	AHeld = false
+	DHeld = false
+	local L_167_ = true
+    local activar = false
+	urspeed = 0.1
+	function ChangeFaster(L_168_arg0, L_169_arg1)
+		if L_168_arg0.KeyCode == Enum.KeyCode.Down and L_169_arg1 == false then
+			urspeed = urspeed - 0.01
+		end
+	end
+	function ChangeSlower(L_170_arg0, L_171_arg1)
+		if L_170_arg0.KeyCode == Enum.KeyCode.Up and L_171_arg1 == false then
+			urspeed = urspeed + 0.01
+		end
+	end
+	function GChecker(L_172_arg0, L_173_arg1)
+		if L_172_arg0.KeyCode == Enum.KeyCode.N and L_173_arg1 == false then
+			if L_167_ == false then
+				L_167_ = true
+			elseif L_167_ == true then
+				L_167_ = false
+			end
+		end
+	end
+	function PressW(L_178_arg0, L_179_arg1)
+		if L_178_arg0.KeyCode == Enum.KeyCode.W and L_179_arg1 == false and L_167_ == true then
+			WHeld = true
+		end
+	end
+	function ReleaseW(L_180_arg0, L_181_arg1)
+		if L_180_arg0.KeyCode == Enum.KeyCode.W then
+			WHeld = false
+		end
+	end
+	function PressS(L_182_arg0, L_183_arg1)
+		if L_182_arg0.KeyCode == Enum.KeyCode.S and L_183_arg1 == false and L_167_ == true then
+			SHeld = true
+		end
+	end
+	function ReleaseS(L_184_arg0, L_185_arg1)
+		if L_184_arg0.KeyCode == Enum.KeyCode.S then
+			SHeld = false
+		end
+	end
+	function PressA(L_186_arg0, L_187_arg1)
+		if L_186_arg0.KeyCode == Enum.KeyCode.A and L_187_arg1 == false and L_167_ == true then
+			AHeld = true
+		end
+	end
+	function ReleaseA(L_188_arg0, L_189_arg1)
+		if L_188_arg0.KeyCode == Enum.KeyCode.A then
+			AHeld = false
+		end
+	end
+	function PressD(L_190_arg0, L_191_arg1)
+		if L_190_arg0.KeyCode == Enum.KeyCode.D and L_191_arg1 == false and L_167_ == true then
+			DHeld = true
+		end
+	end
+	function ReleaseD(L_192_arg0, L_193_arg1)
+		if L_192_arg0.KeyCode == Enum.KeyCode.D then
+			DHeld = false
+		end
+	end
+	function CheckFirst(L_194_arg0, L_195_arg1)
+		if L_194_arg0.KeyCode == Enum.UserInputType.MouseWheel then
+			if (player.Character.Head.CFrame.p - workspace.CurrentCamera.CFrame.p).magnitude < 0.6 then
+				IsFirstPerson = true
+			elseif (player.Character.Head.CFrame.p - workspace.CurrentCamera.CFrame.p).magnitude > 0.6 then
+				IsFirstPerson = false
+			end
+		end
+	end
+	game:GetService("UserInputService").InputBegan:connect(PressW)
+	game:GetService("UserInputService").InputEnded:connect(ReleaseW)
+	game:GetService("UserInputService").InputBegan:connect(PressS)
+	game:GetService("UserInputService").InputEnded:connect(ReleaseS)
+	game:GetService("UserInputService").InputBegan:connect(PressA)
+	game:GetService("UserInputService").InputEnded:connect(ReleaseA)
+	game:GetService("UserInputService").InputBegan:connect(PressD)
+	game:GetService("UserInputService").InputEnded:connect(ReleaseD)
+	game:GetService("UserInputService").InputChanged:connect(CheckFirst)
+	game:GetService("UserInputService").InputBegan:connect(ChangeFaster)
+	game:GetService("UserInputService").InputBegan:connect(ChangeSlower)
+	game:GetService("RunService").Stepped:connect(
+            function()
+		if activar == true then
+			if WHeld == true then
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, -urspeed)
+			end
+			if SHeld == true then
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, urspeed)
+			end
+			if DHeld == true then
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(urspeed, 0, 0)
+			end
+			if AHeld == true then
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(-urspeed, 0, 0)
+			end
+		end
+end)
 
 local ESP = loadstring(game:HttpGet("https://raw.githubusercontent.com/wpalklddd12345678910/kkkkjwakjxxxwasfld/main/zzzzzzesp", true))()
 
@@ -270,6 +343,40 @@ local section10 = tab4:CreateSector("Main Buildings", "left")
 local section11 = tab4:CreateSector("Auto Buys.", "right")
 local section12 = tab4:CreateSector("Auto Buys 2.", "right")
 local section13 = tab4:CreateSector("Guns Ammo.", "right")
+local section14 = tab2:CreateSector("CFrame Speed", "left")
+
+section14:AddToggle("CFrame Speed", false, function(cframe)
+    activar = cframe
+end):AddKeybind("None")
+
+section14:AddToggle("Fix CFrame", false, function(cframe)
+    for _, v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+        if v:IsA("Script") and v.Name ~= "Health" and v.Name ~= "Sound" and v:FindFirstChild("LocalScript") then
+            v:Destroy()
+        end
+    end
+    game.Players.LocalPlayer.CharacterAdded:Connect(function(char)
+        repeat
+            wait()
+        until game.Players.LocalPlayer.Character
+        char.ChildAdded:Connect(function(child)
+            if child:IsA("Script") then 
+                wait(0.1)
+                if child:FindFirstChild("LocalScript") then
+                    child.LocalScript:FireServer()
+                end
+            end
+        end)
+    end)
+
+end)
+
+local glitch = false
+local clicker = false
+
+section14:AddSlider("Speed", -10, 0, 10, 5, function(ass)
+    urspeed = ass
+end)
 
 section1:AddTextbox("Aimlock Key", "q", function(bindasd)
     getgenv().AimlockKey = bindasd
@@ -720,6 +827,74 @@ section11:AddDropdown("Other Stuff", {"High Medium Armor", "Tool While Jailed", 
                     wait(.2)
             
                     fireclickdetector(game.Workspace.Ignored.Shop['[GrenadeLauncher] - $10000'].ClickDetector)
+                    plr.Character.HumanoidRootPart.CFrame = CFrame.new(savedarmourpos)
+        end
+    end)
+
+    section13:AddDropdown("Ammo", {"Rev Ammo", "Db Ammo", "AK Ammo", "SMG Ammo", "DrumGun Ammo", "RPG Ammo", "Flame Ammo", "GrenadeL Ammo"}, default, false, function(v)
+        if v == "Rev Ammo" then
+            local plr = game.Players.LocalPlayer
+            local savedarmourpos = plr.Character.HumanoidRootPart.Position
+                    plr.Character.HumanoidRootPart.CFrame = CFrame.new(-638, 15, -120)
+                    wait(.2)
+            
+                    fireclickdetector(game.Workspace.Ignored.Shop['12 [Revolver Ammo] - $75'].ClickDetector)
+                    plr.Character.HumanoidRootPart.CFrame = CFrame.new(savedarmourpos)        
+        elseif v == "Db Ammo" then
+            local plr = game.Players.LocalPlayer
+            local savedarmourpos = plr.Character.HumanoidRootPart.Position
+                    plr.Character.HumanoidRootPart.CFrame = CFrame.new(-1046, 15, -258)
+                    wait(.2)
+            
+                    fireclickdetector(game.Workspace.Ignored.Shop['18 [Double-Barrel SG Ammo] - $60'].ClickDetector)
+                    plr.Character.HumanoidRootPart.CFrame = CFrame.new(savedarmourpos)
+        elseif v == "AK Ammo" then
+            local plr = game.Players.LocalPlayer
+            local savedarmourpos = plr.Character.HumanoidRootPart.Position
+                    plr.Character.HumanoidRootPart.CFrame = CFrame.new(-587, -1, -751)
+                    wait(.2)
+            
+                    fireclickdetector(game.Workspace.Ignored.Shop['90 [AK47 Ammo] - $80'].ClickDetector)
+                    plr.Character.HumanoidRootPart.CFrame = CFrame.new(savedarmourpos)
+        elseif v == "SMG Ammo" then
+            local plr = game.Players.LocalPlayer
+            local savedarmourpos = plr.Character.HumanoidRootPart.Position
+                    plr.Character.HumanoidRootPart.CFrame = CFrame.new(-810, -47, -940)
+                    wait(.2)
+            
+                    fireclickdetector(game.Workspace.Ignored.Shop['80 [SMG Ammo] - $60'].ClickDetector)
+                    plr.Character.HumanoidRootPart.CFrame = CFrame.new(savedarmourpos)
+        elseif v == "DrumGun Ammo" then
+            local plr = game.Players.LocalPlayer
+            local savedarmourpos = plr.Character.HumanoidRootPart.Position
+                    plr.Character.HumanoidRootPart.CFrame = CFrame.new(-83, 15, -84)
+                    wait(.2)
+            
+                    fireclickdetector(game.Workspace.Ignored.Shop['100 [DrumGun Ammo] - $200'].ClickDetector)
+                    plr.Character.HumanoidRootPart.CFrame = CFrame.new(savedarmourpos)
+        elseif v == "RPG Ammo" then
+            local plr = game.Players.LocalPlayer
+            local savedarmourpos = plr.Character.HumanoidRootPart.Position
+                    plr.Character.HumanoidRootPart.CFrame = CFrame.new(-118, -40, -274)
+                    wait(.2)
+            
+                    fireclickdetector(game.Workspace.Ignored.Shop['5 [RPG Ammo] - $1000'].ClickDetector)
+                    plr.Character.HumanoidRootPart.CFrame = CFrame.new(savedarmourpos)
+        elseif v == "Flame Ammo" then
+            local plr = game.Players.LocalPlayer
+            local savedarmourpos = plr.Character.HumanoidRootPart.Position
+                    plr.Character.HumanoidRootPart.CFrame = CFrame.new(-134, 53, -101)
+                    wait(.2)
+            
+                    fireclickdetector(game.Workspace.Ignored.Shop['140 [Flamethrower Ammo] - $1550'].ClickDetector)
+                    plr.Character.HumanoidRootPart.CFrame = CFrame.new(savedarmourpos)
+        elseif v == "GrenadeL Ammo" then
+            local plr = game.Players.LocalPlayer
+            local savedarmourpos = plr.Character.HumanoidRootPart.Position
+                    plr.Character.HumanoidRootPart.CFrame = CFrame.new(-966, -11, 471)
+                    wait(.2)
+            
+                    fireclickdetector(game.Workspace.Ignored.Shop['12 [GrenadeLauncher Ammo] - $3000'].ClickDetector)
                     plr.Character.HumanoidRootPart.CFrame = CFrame.new(savedarmourpos)
         end
     end)
