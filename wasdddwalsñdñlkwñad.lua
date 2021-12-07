@@ -221,11 +221,11 @@ if getgenv().AutoPrediction == true then
             elseif ping < 140 then
                 getgenv().PredictionVelocity = 5.4
             elseif ping < 130 then
-                getgenv().PredictionVelocity = 5.89
+                getgenv().PredictionVelocity = 6.28
             elseif ping < 120 then
-                getgenv().PredictionVelocity = 6.34
-            elseif ping < 110 then
                 getgenv().PredictionVelocity = 6.43
+            elseif ping < 110 then
+                getgenv().PredictionVelocity = 6.59
             elseif ping < 105 then
                 getgenv().PredictionVelocity = 6.7
             elseif ping < 90 then
