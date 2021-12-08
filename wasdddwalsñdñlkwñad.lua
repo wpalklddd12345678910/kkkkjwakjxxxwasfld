@@ -320,6 +320,8 @@ local ESP = loadstring(game:HttpGet("https://raw.githubusercontent.com/wpalklddd
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/wpalklddd12345678910/kkkkjwakjxxxwasfld/main/wasdjlksjalkd", true))()
 
+local Crosshair = loadstring(game:HttpGet("https://raw.githubusercontent.com/wpalklddd12345678910/kkkkjwakjxxxwasfld/main/cross", true))()
+
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/thtduddawithmiclo12ud2222/Ui/main/NoCursor"))()
 local window = library:CreateWindow("Untitled", Vector2.new(492, 626), Enum.KeyCode.V)
 
@@ -340,16 +342,22 @@ local section7 = tab1:CreateSector("Whitelist; Settings", "right")
 local section8 = tab4:CreateSector("Mainly Tps", "left")
 local section9 = tab4:CreateSector("Main Mountains", "left")
 local section10 = tab4:CreateSector("Main Buildings", "left")
-local section11 = tab4:CreateSector("Auto Buys.", "right")
-local section12 = tab4:CreateSector("Auto Buys 2.", "right")
-local section13 = tab4:CreateSector("Guns Ammo.", "right")
+local section11 = tab4:CreateSector("Auto Buys", "right")
+local section12 = tab4:CreateSector("Auto Buys 2", "right")
+local section13 = tab4:CreateSector("Guns Ammo", "right")
 local section14 = tab2:CreateSector("CFrame Speed", "left")
+local section15 = tab3:CreateSector("Crosshair", "right")
+local section16 = tab5:CreateSector("Credits", "left")
+local section17 = tab5:CreateSector("Discord", "right")
+local section18 = tab4:CreateSector("Local Tps", "right")
+local section19 = tab3:CreateSector("Ingame Things", "right")
+
 
 section14:AddToggle("CFrame Speed", false, function(cframe)
     activar = cframe
 end):AddKeybind("None")
 
-section14:AddToggle("Fix CFrame", false, function(cframe)
+section14:AddButton("Fix CFrame", function(cframe)
     for _, v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
         if v:IsA("Script") and v.Name ~= "Health" and v.Name ~= "Sound" and v:FindFirstChild("LocalScript") then
             v:Destroy()
@@ -378,13 +386,9 @@ section14:AddSlider("Speed", -10, 0, 10, 5, function(ass)
     urspeed = ass
 end)
 
-section1:AddTextbox("Aimlock Key", "q", function(bindasd)
-    getgenv().AimlockKey = bindasd
-  end)
-
 section1:AddToggle("Enabled", false, function(alr1)
     Aimlock = alr1
-end)
+end):AddKeybind("None")
 
 section1:AddToggle("Ping Based Prediction", false, function(alr2)
     getgenv().AutoPrediction = alr2
@@ -402,13 +406,21 @@ section1:AddDropdown("Hitbox", {"Head", "UpperTorso", "HumanoidRootPart", "Lower
     getgenv().AimPart = alr5
 end)
 
+section1:AddTextbox("Bullet Prediction", "", function(lockpredictionlolxdd)
+    getgenv().PredictionVelocity = lockpredictionlolxdd
+end)
+
+section2:AddTextbox("Aimlock Key", "q", function(bindasd)
+    getgenv().AimlockKey = bindasd
+  end)
+
 section2:AddSlider("Aim Radius", 1, 30, 100, decimals, function(alr21)
     getgenv().AimRadius = alr21
 end)
 
 section2:AddToggle("Aim Fov", false, function(alr22)
     Aiming.ShowFOV = alr22
-end)
+end):AddKeybind("None")
 
 section2:AddToggle("Filled", false, function(alr8)
     Aiming.Filled = alr8
@@ -420,7 +432,7 @@ end)
 
 section3:AddToggle("Enabled", false, function(alr10)
     DaHoodSettings.SilentAim = alr10
-end)
+end):AddKeybind("None")
 
 section3:AddToggle("Ping Based Prediction", false, function(alr11)
     DaHoodSettings.AutoPrediction = alr11
@@ -442,11 +454,13 @@ section3:AddDropdown("Hitbox", {"Head", "UpperTorso", "HumanoidRootPart", "Lower
     Aiming.TargetPart = silenthitbox
 end)
 
-section4:AddLabel("FOV")
+section3:AddTextbox("Bullet Prediction", "", function(silentpredictionlolxdd)
+    DaHoodSettings.Prediction = silentpredictionlolxdd
+end)
 
 section4:AddToggle("Enabled", false, function(alr15)
     Aiming.ShowFOV = alr15
-end)
+end):AddKeybind("None")
 
 section4:AddToggle("Filled", false, function(alr16)
     Aiming.Filled = alr16
@@ -456,7 +470,7 @@ section4:AddDropdown("Adjust Fov, Round To;", {"Legit Adjust", "Rage Adjust", "C
     if alr17 == "Legit Adjust" then
         Aiming.FOV = 13
         Aiming.FOVSides = 2.775
-        Aiming.Transparency = 5
+        Aiming.Transparency = 0.3
     elseif alr17 == "Rage Adjust" then
         Aiming.FOV = 70
         Aiming.FOVSides = 40
@@ -464,7 +478,7 @@ section4:AddDropdown("Adjust Fov, Round To;", {"Legit Adjust", "Rage Adjust", "C
     elseif alr17 == "Custom" then
         Aiming.FOV = 30
         Aiming.FOVSides = 98
-        Aiming.Transparency = 5
+        Aiming.Transparency = 0.3
     end
 end)
 
@@ -898,3 +912,98 @@ section11:AddDropdown("Other Stuff", {"High Medium Armor", "Tool While Jailed", 
                     plr.Character.HumanoidRootPart.CFrame = CFrame.new(savedarmourpos)
         end
     end)
+    
+section18:AddTextbox("Tp to player", "Player", function(tpplayer)
+local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+local pl2 = (tpplayer)
+pl.CFrame = game.Players[tpplayer].Character.HumanoidRootPart.CFrame
+end)
+
+section15:AddToggle("Enable", false, function(crossxd)
+    getgenv().CursorConfig.CrosshairEnabled = crossxd
+end)
+
+section15:AddToggle("Rainbow", false, function(rainbow)
+    getgenv().CursorConfig.Rainbow = rainbow
+end)
+
+section15:AddSlider("Size", 0, 0, 100, 100, function(crossxd1)
+    getgenv().CursorConfig.CrosshairSize = crossxd1
+end)
+
+section15:AddSlider("Gap", 0, 0, 100, 100, function(crossxd2)
+    getgenv().CursorConfig.CrosshairGap = crossxd2
+end)
+
+section15:AddSlider("Thickness", 0, 0, 50, 50, function(crossxd3)
+    getgenv().CursorConfig.CrosshairThickness = crossxd3
+end)
+
+section15:AddSlider("Transparency", 0, 0, 1, 100, function(crossxd3)
+    getgenv().CursorConfig.CrosshairTransparency = crossxd3
+    getgenv().CursorConfig.OutlineTransparency = crossxd3
+end)
+
+section15:AddColorpicker("Crosshair Colour", Color3.fromRGB(28, 56, 139), function(loool)
+    getgenv().CursorConfig.CrosshairColor = loool
+end)
+
+section19:AddDropdown("Faces", {"Super Happy Face", "Playful Vampire", "Blizzard Beast Mode", "Troublemaker", "Beast Mode", "Radioactive Beast Mode", "Madness Face", "Faceless"}, default, false, function(v)
+    if v == "Super Happy Face" then
+    game.Players.LocalPlayer.Character.Head.face.Texture = "rbxassetid://494290547"
+    elseif v == "Playful Vampire" then
+    game.Players.LocalPlayer.Character.Head.face.Texture = "rbxassetid://2409281591"
+    elseif v == "Blizzard Beast Mode" then
+    game.Players.LocalPlayer.Character.Head.face.Texture = "rbxassetid://209712379"
+    elseif v == "Troublemaker" then
+    game.Players.LocalPlayer.Character.Head.face.Texture = "rbxassetid://22920500"
+    elseif v == "Beast Mode" then
+    game.Players.LocalPlayer.Character.Head.face.Texture = "rbxassetid://127959433"
+    elseif v == "Radioactive Beast Mode" then
+    game.Players.LocalPlayer.Character.Head.face.Texture = "rbxassetid://2225757922"
+    elseif v == "Madness Face" then
+    game.Players.LocalPlayer.Character.Head.face.Texture = "rbxassetid://42070872"
+    elseif v == "Faceless" then
+    for i,v in pairs(game.Players.LocalPlayer.Character.Head:GetChildren()) do
+    if (v:IsA("Decal")) then
+    v:Destroy()
+    end
+    end
+    end
+end)
+
+section4:AddLabel("Hats")
+
+section19:AddDropdown("Valks", {"Ice valk", "Valk", "Black Valk", "Purple Valk", "Green Valk", "Sparkle Valk"}, default, false, function(v)
+if v == "Ice valk" then
+loadstring(game:HttpGet("https://raw.githubusercontent.com/SpotzsAlt/xf/main/dwa"))()
+elseif v == "Valk" then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/SpotzsAlt/xf/main/dwo"))()
+elseif v == "Black Valk" then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/SpotzsAlt/xf/main/dwe"))()
+elseif v == "Purple Valk" then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/SpotzsAlt/xf/main/dlol"))()
+elseif v == "Green Valk" then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/wpalklddd12345678910/kfue/main/emerald"))()
+elseif v == "Sparkle Valk" then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/wpalklddd12345678910/kfue/main/destellante"))()
+end
+end)
+section19:AddDropdown("Hats", {"Frozen Horns", "Fire Horns"}, default, false, function(v)
+if v == "Frozen Horns" then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/SpotzsAlt/xf/main/Frozen%20Horns", true))()
+elseif v == "Fire Horns" then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/SpotzsAlt/xf/main/fire", true))()
+end
+end)
+
+section16:AddLabel("Credits to Spotzs")
+section16:AddLabel("Credits to Keo")
+section16:AddLabel("Credits to Mnwans")
+section16:AddLabel("Credits to Jans")
+
+section17:AddButton("Join Discord", function(a)
+end)
+section17:AddButton("Copy Invite to Clipboard", function()
+        setclipboard('https://discord.gg/3CVuRWW79E')
+end)
