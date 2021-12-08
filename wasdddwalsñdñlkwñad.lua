@@ -971,13 +971,13 @@ section4:AddLabel("Hats")
 
 section19:AddDropdown("Valks", {"Ice valk", "Valk", "Black Valk", "Purple Valk", "Green Valk", "Sparkle Valk"}, default, false, function(v)
 if v == "Ice valk" then
-loadstring(game:HttpGet("https://raw.githubusercontent.com/SpotzsAlt/xf/main/dwa"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/wpalklddd12345678910/kkkkjwakjxxxwasfld/main/dwa"))()
 elseif v == "Valk" then
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/SpotzsAlt/xf/main/dwo"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/wpalklddd12345678910/kkkkjwakjxxxwasfld/main/dwo"))()
 elseif v == "Black Valk" then
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/SpotzsAlt/xf/main/dwe"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/wpalklddd12345678910/kkkkjwakjxxxwasfld/main/dwe"))()
 elseif v == "Purple Valk" then
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/SpotzsAlt/xf/main/dlol"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/wpalklddd12345678910/kkkkjwakjxxxwasfld/main/dlol"))()
 elseif v == "Green Valk" then
     loadstring(game:HttpGet("https://raw.githubusercontent.com/wpalklddd12345678910/kfue/main/emerald"))()
 elseif v == "Sparkle Valk" then
@@ -986,13 +986,13 @@ end
 end)
 section19:AddDropdown("Hats", {"Frozen Horns", "Fire Horns"}, default, false, function(v)
 if v == "Frozen Horns" then
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/SpotzsAlt/xf/main/Frozen%20Horns", true))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/wpalklddd12345678910/kkkkjwakjxxxwasfld/main/frozen%20horns", true))()
 elseif v == "Fire Horns" then
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/SpotzsAlt/xf/main/fire", true))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/wpalklddd12345678910/kkkkjwakjxxxwasfld/main/fire", true))()
 end
 end)
 
-section16:AddLabel("Credits to Spotzs")
+section16:AddLabel("Credits to Sp0tz5")
 section16:AddLabel("Credits to Keo")
 section16:AddLabel("Credits to Mnwans")
 section16:AddLabel("Credits to Jans")
