@@ -335,10 +335,8 @@ local section1 = tab1:CreateSector("Aimbot", "left")
 local section2 = tab1:CreateSector("Aimbot; Settings", "right")
 local section3 = tab1:CreateSector("Silent Aim", "left")
 local section4 = tab1:CreateSector("Silent Aim; Settings", "right")
-local section5 = tab1:CreateSector("Silent Aimbot", "left")
-local section6 = tab1:CreateSector("Silent Aimbot; Settings", "right")
 local section6 = tab1:CreateSector("Anti Aim", "left")
-local section7 = tab1:CreateSector("Whitelist; Settings", "right")
+local section7 = tab1:CreateSector("Settings; Whitelist", "right")
 local section8 = tab4:CreateSector("Mainly Tps", "left")
 local section9 = tab4:CreateSector("Main Mountains", "left")
 local section10 = tab4:CreateSector("Main Buildings", "left")
@@ -482,11 +480,11 @@ section4:AddDropdown("Adjust Fov, Round To;", {"Legit Adjust", "Rage Adjust", "C
     end
 end)
 
-section4:AddSlider("Size", 1, 30, 100, 100, function(alr18)
+section4:AddSlider("Size", 1, 30, 300, decimals, function(alr18)
     Aiming.FOV = alr18
 end)
 
-section4:AddSlider("Round", 1, 40, 40, 40, function(alr19)
+section4:AddSlider("Round", 1, 40, 40, decimals, function(alr19)
     Aiming.FOVSides = alr19
 end)
 
@@ -494,9 +492,6 @@ section4:AddSlider("Transparency", 0, 0.2, 1, 10, function(alr20)
     Aiming.Transparency = alr20
 end)
 
-section5:AddButton("Silent Aimbot", function()
-
-end)
 section8:AddDropdown("Teleports", {"Admin Guns 1", "Admin Guns 2", "Food Admin", "Ufo", "Ufo 2", "Ufo 3"}, default, false, function(v)
     if v == "Admin Guns 1" then
             local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
